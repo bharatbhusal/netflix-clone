@@ -1,0 +1,5 @@
+.env
+/node_modules
+package-lock.json
+script.js
+**/react-app-env.d
