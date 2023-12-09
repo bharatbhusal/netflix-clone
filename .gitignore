@@ -2,4 +2,4 @@
 /node_modules
 package-lock.json
 script.js
-**/react-app-env.d
+react-app-env.d.ts

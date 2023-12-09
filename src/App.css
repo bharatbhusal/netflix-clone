@@ -1,16 +1,17 @@
-/* App.css */
-
+/* Resetting margin, padding, and box-sizing for all elements */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Styling the overall body of the page */
 body {
   font-family: 'Netflix Sans', sans-serif;
   background-color: #111;
 }
 
+/* Styling for the navigation bar */
 .nav {
   position: absolute;
   top: 0;
@@ -24,18 +25,22 @@ body {
   transition: all 0.5s;
 }
 
-.nav:hover{
+/* Styling for the navigation bar hover effect */
+.nav:hover {
   background-color: rgb(0, 0, 0, 0.8);
 }
 
+/* Styling for the left side of the navigation bar */
 .nav__left {
   margin-left: 10px;
 }
 
+/* Styling for the logo in the navigation bar */
 .nav_logo {
   width: 180px;
 }
 
+/* Styling for the right side of the navigation bar */
 .nav__right {
   /* position: fixed; */
   right: 30px;
@@ -43,10 +48,12 @@ body {
   margin-right: 10px;
 }
 
+/* Styling for the avatar in the navigation bar */
 .nav_avatar {
   width: 40px;
 }
 
+/* Styling for the banner section */
 .banner {
   color: white;
   object-fit: contain;
@@ -55,18 +62,21 @@ body {
   background-size: cover;
 }
 
+/* Styling for the contents within the banner */
 .banner__contents {
   margin-left: 70px;
   padding-top: 340px;
   height: 190px;
 }
 
+/* Styling for the title within the banner */
 .banner__title {
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
 }
 
+/* Styling for the description within the banner */
 .banner__description {
   width: 50%;
   line-height: 1.5;
@@ -76,6 +86,7 @@ body {
   height: 80px;
 }
 
+/* Styling for the button within the banner */
 .banner__button {
   cursor: pointer;
   color: white;
@@ -94,12 +105,14 @@ body {
   padding-bottom: 0.5rem;
 }
 
+/* Styling for the button hover state within the banner */
 .banner__button:hover {
   color: black;
   background-color: #e6e6e6;
   transition: all 0.3s;
 }
 
+/* Styling for the bottom fade effect within the banner */
 .banner__fadeBottom {
   height: 100%;
   background: linear-gradient(
@@ -110,12 +123,14 @@ body {
   );
 }
 
+/* Styling for the row section */
 .row {
   margin-top: 10px;
   margin-left: 20px;
   color: white;
 }
 
+/* Styling for the posters within a row */
 .row__poster {
   object-fit: contain;
   width: 100%;
@@ -124,10 +139,12 @@ body {
   transition: transform 500ms;
 }
 
+/* Styling for the posters container within a row */
 .row__posters::-webkit-scrollbar {
   display: none;
 }
 
+/* Styling for the posters container within a row */
 .row__posters {
   display: flex;
   overflow-y: hidden;
@@ -135,10 +152,12 @@ body {
   padding: 20px;
 }
 
+/* Styling for the posters hover state within a row */
 .row__poster:hover {
   transform: scale(1.08);
 }
 
+/* Styling for the larger posters within a row */
 .row__posterLarge,
 .row__posterLarge1,
 .row__posterLarge2 {
@@ -149,6 +168,7 @@ body {
   transition: transform 500rms;
 }
 
+/* Styling for the larger posters hover state within a row */
 .row__posterLarge:hover,
 .row__posterLarge1:hover,
 .row__posterLarge2:hover {

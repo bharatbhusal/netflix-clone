@@ -1,16 +1,23 @@
-// App.js
-
+// Importing React and necessary hooks from 'react'
 import React, { useState, useEffect } from 'react';
+
+// Importing the main stylesheet for the component
 import './App.css';
+
+// Importing environment variables from the 'validateEnv' utility
 import env from "./utils/validateEnv";
+
+// Importing image components
 import RectangleLogo from "./images/Netflix name.png"
 import SquareLogo from "./images/Netflix_Avatar.jpg"
 
+// Extracting necessary API and URL details from environment variables
 const api = env.REACT_APP_API_KEY;
 const base_url = env.REACT_APP_BASE_URL;
 const banner_url = env.REACT_APP_BANNER_URL;
 const img_url = env.REACT_APP_IMAGE_URL;
 
+// Defining various API requests for fetching movie data
 const requests = {
     fetchTrending: `${base_url}/trending/all/week?${api}&language=en-US`,
     fetchNetflixOriginals: `${base_url}/discover/tv?${api}&with_networks=213`,
@@ -22,7 +29,9 @@ const requests = {
     // Add other fetch requests as needed
 };
 
+// Main functional component App
 function App() {
+    // State variables to hold movie data
     const [netflixOriginals, setNetflixOriginals] = useState([]);
     const [trendingMovies, setTrendingMovies] = useState([]);
     const [actionMovies, setActionMovies] = useState([]);
@@ -31,13 +40,17 @@ function App() {
     const [romanceMovies, setRomanceMovies] = useState([]);
     const [documentaries, setDocumentaries] = useState([]);
     const [randomMovie, setRandomMovie] = useState(null);
+
+    // useEffect hook to fetch data when the component mounts
     useEffect(() => {
+        // Function to fetch data from a given URL and update the corresponding state variable
         const fetchData = async (url, setStateFunction) => {
             const response = await fetch(url);
             const data = await response.json();
             setStateFunction(data.results);
         };
 
+        // Function to fetch a random movie from Netflix Originals
         const fetchRandomMovie = async () => {
             const response = await fetch(requests.fetchNetflixOriginals);
             const data = await response.json();
@@ -45,6 +58,7 @@ function App() {
             setRandomMovie(randomMovie);
         };
 
+        // Fetching data for various categories and the random movie
         fetchData(requests.fetchNetflixOriginals, setNetflixOriginals);
         fetchData(requests.fetchTrending, setTrendingMovies);
         fetchData(requests.fetchActionMovies, setActionMovies);
@@ -55,6 +69,7 @@ function App() {
         fetchRandomMovie();
     }, []);
 
+    // Function to render a row of posters for a given category
     const renderRow = (title, movies) => (
         <div className="row" key={title}>
             <h2 className="row__title">{title}</h2>
@@ -70,6 +85,8 @@ function App() {
             </div>
         </div>
     );
+
+    // Functional component for the navigation bar
     const NavBar = () => (
         <div className="nav">
             <div className="nav__left">
@@ -82,6 +99,8 @@ function App() {
             </div>
         </div>
     )
+
+    // Functional component for the banner
     const Banner = () => (
         <header
             className="banner"
@@ -102,6 +121,8 @@ function App() {
             <div className="banner__fadeBottom"></div>
         </header>
     )
+
+    // Main JSX structure of the component
     return (
         <div className="App">
             <NavBar />
@@ -119,8 +140,10 @@ function App() {
     );
 }
 
+// Function to truncate a string
 function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 }
 
+// Exporting the App component as the default export
 export default App;
