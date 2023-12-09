@@ -9,7 +9,6 @@ Welcome to the Netflix Clone React App! This project is a front-end clone of the
 - [How to Run](#how-to-run)
 - [Customization](#customization)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - Fetches movie data from The Movie Database (TMDb) API.
